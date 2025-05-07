@@ -47,7 +47,7 @@ fn parse_pair(pair: Pair<Rule>) -> anyhow::Result<Eqlang> {
                     "!!?!?!??" => result.statements.push(Statement::Plus),
                     e => panic!("PARSE ERROR: Unknown word, {}", e),
                 }
-                
+
                 // Update statement to next word
                 statement = rule.next().unwrap();
             }
