@@ -1,0 +1,5 @@
+PUNCT_WORD = _{ "\n" }
+
+statement = { SOI ~ (word ~ PUNCT_WORD+ | word)+ ~ EOI }
+word = @{ character{8} }
+character = { "!" | "?" }
