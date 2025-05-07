@@ -9,8 +9,7 @@ fn example_statements() -> anyhow::Result<()> {
     // !??!?!!? <- Nine
     // !????!!? <- Eight
     cmd.arg("!!?!?!??!??!?!!?!????!!?");
-    cmd.assert()
-        .success();
+    cmd.assert().success();
 
     Ok(())
 }
