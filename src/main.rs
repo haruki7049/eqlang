@@ -1,12 +1,13 @@
 use clap::Parser;
 use eqlang::parser as eqlang_parser;
-use eqlang::parser::Statement;
+use eqlang::parser::Eqlang;
 
 fn main() -> anyhow::Result<()> {
     let args: CLIArgs = CLIArgs::parse();
 
-    let statement: Statement = eqlang_parser::parse(&args.statement)?;
-    dbg!(statement);
+    let result: Eqlang = eqlang_parser::parse(&args.statement)?;
+
+    dbg!(result.statements);
 
     Ok(())
 }
