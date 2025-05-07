@@ -98,7 +98,9 @@ fn parse_pair(pair: Pair<Rule>) -> anyhow::Result<Eqlang> {
 
             // Now `statement` has a word
 
-            while let s = statement.as_span().as_str() {
+            loop {
+                let s = statement.as_span().as_str();
+
                 match s {
                     "" => break,
 
