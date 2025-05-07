@@ -11,7 +11,7 @@ pub struct Statement {}
 
 fn parse_pair(pair: Pair<Rule>) -> anyhow::Result<Statement> {
     match pair.as_rule() {
-        Rule::EOI => panic!("EOI detected by parser"),
+        Rule::EOI | Rule::word | Rule::character | Rule::PUNCT_WORD => unreachable!(),
         Rule::statement => {
             let mut rule = pair.into_inner();
 
@@ -21,9 +21,6 @@ fn parse_pair(pair: Pair<Rule>) -> anyhow::Result<Statement> {
             }
 
             todo!()
-        }
-        Rule::word | Rule::character | Rule::PUNCT_WORD => {
-            unreachable!("Only some character detected by parser")
         }
     }
 }
