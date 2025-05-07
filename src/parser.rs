@@ -119,7 +119,7 @@ fn parse_pair(pair: Pair<Rule>) -> anyhow::Result<Eqlang> {
                     "!????!!?" => result.statements.push(Statement::Number(Number::Eight)),
                     "!??!?!!?" => result.statements.push(Statement::Number(Number::Nine)),
 
-                    e => panic!("PARSE ERROR: Unknown word, {}", e),
+                    e => anyhow::bail!("PARSE ERROR: Unknown word, {}", e),
                 }
 
                 // Update statement to next word
